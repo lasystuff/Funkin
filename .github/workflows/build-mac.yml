@@ -26,6 +26,9 @@ jobs:
         with:
           haxe-version: 4.3.7
       # Runs a set of commands using the runners shell
+      - name: Download Submodules
+        run: |
+          git submodule update --init --recursive
       - name: Install Haxelib
         run: |
           haxelib setup ~/haxelib
@@ -38,5 +41,5 @@ jobs:
       - name: Publish Artifact
         uses: actions/upload-artifact@v7.0.1
         with:
-          name: macBuild
+          name: build
           path: 'export/release/macos/bin'
