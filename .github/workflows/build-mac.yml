@@ -31,8 +31,8 @@ jobs:
           haxelib setup ~/haxelib
           haxelib install hxcpp > /dev/null --quiet
           haxelib install hmm --quiet
-          haxelib run hmm install
-          haxelib run lime rebuild mac
+          yes y | haxelib run hmm install
+          yes y | haxelib run lime rebuild mac
       - name: Compile
         run: haxelib run lime build mac -DGITHUB_BUILD
       - name: Publish Artifact
